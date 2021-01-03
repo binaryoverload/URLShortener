@@ -1,0 +1,31 @@
+Two user types: user and admin
+  Based of Azure AD groups? (UPN might be simpler...)
+
+
+POST /api/url - Creates a url
+GET /api/url - Gets a URL's information. If not the owner / admin, only the url is available (No other meta)
+
+    URL information (Only * are available as non-owner/admin)
+
+    If the URL is no longer active, the code can be reused elsewhere. If the url is not reactivated before the same code is used, the url will be permanently archived.
+
+    Archived records throw a 404 for non-owner/admin
+
+    {
+        * "code": "sheep",
+        * "target": "https://sheeparecool.com",
+          "expired": false
+          "created_at": 56789456789
+          "owner_upn": "person@domain.com"
+          "click_count": 27,
+          "expiry_time": 234567894567 | not present
+    }
+
+GET /api/authcallback
+GET /api/auth
+
+GET /api/users/@me/urls
+
+GET /api/users/{upn}/urls - Admi
+n-only route
+GET /api/urls - Admin-only route
